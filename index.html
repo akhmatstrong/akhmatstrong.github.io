@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ТрейдСервис - Оптовые поставки замороженных продуктов</title>
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+
+    <meta name="description"
+        content="ТрейдСервис - ведущее предприятие по импорту и оптовым поставкам замороженных ягод, фруктов, овощей и грибов в Московской области">
+    <meta name="keywords"
+        content="замороженные овощи, замороженные фрукты, замороженные ягоды, замороженные грибы, оптовые поставки, хладокомбинат, глубокая заморозка">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/lucide-static@0.525.0/font/lucide.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* navbar */
+        .bg-primary {
+            background-color: #003399 !important;
+        }
+
+        .hero-section {
+            background-image: url('./warehouse.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 93.5%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .hero-section>* {
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Иконки */
+        .icon-logo-tradeservice::before {
+            content: "";
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background-image: url('/favicon.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .icon-warehouse::before {
+            content: "📦";
+        }
+
+        .icon-truck::before {
+            content: "🚚";
+        }
+
+        .icon-globe::before {
+            content: "🌍";
+        }
+
+        .icon-factory::before {
+            content: "🏭";
+        }
+
+        .icon-award::before {
+            content: "🏆";
+        }
+
+        .icon-carrot::before {
+            content: "🥕";
+        }
+
+        .icon-apple::before {
+            content: "🍎";
+        }
+
+        .icon-cherry::before {
+            content: "🍒";
+        }
+
+        .icon-mushroom::before {
+            content: "🍄";
+        }
+
+        .icon-salad::before {
+            content: "🥗";
+        }
+
+        .icon-calculator::before {
+            content: "🧮";
+        }
+
+        .icon-ruble-sign::before {
+            content: "₽";
+        }
+
+        .icon-handshake::before {
+            content: "🤝";
+        }
+
+        .icon-users::before {
+            content: "👥";
+        }
+
+        .icon-building::before {
+            content: "🏢";
+        }
+
+        .icon-phone::before {
+            content: "📞";
+        }
+
+        .icon-mail::before {
+            content: "📧";
+        }
+
+        .icon-clock::before {
+            content: "🕐";
+        }
+
+        .icon-shopping-cart::before {
+            content: "🛒";
+        }
+
+        .icon-send::before {
+            content: "📤";
+        }
+
+        .icon-check-circle::before {
+            content: "✅";
+        }
+
+        .icon-facebook::before {
+            content: "📘";
+        }
+
+        .icon-twitter::before {
+            content: "🐦";
+        }
+
+        .icon-linkedin::before {
+            content: "💼";
+        }
+
+        .text-xl {
+            font-size: 1.25rem;
+        }
+
+        /* Мобильная адаптивность */
+        @media (max-width: 767.98px) {
+            .display-4 {
+                font-size: 2.5rem !important;
+            }
+
+            .display-5 {
+                font-size: 2rem !important;
+            }
+
+            .lead {
+                font-size: 1.1rem !important;
+            }
+
+            .hero-section {
+                padding: 3rem 0 !important;
+                min-height: 60vh !important;
+            }
+
+            .hero-section::before {
+                height: 68% !important;
+            }
+
+            .hero-section .container .row {
+                min-height: auto !important;
+            }
+
+            /* .hero-section img {
+                margin-top: 2rem;
+                max-height: 250px;
+                object-fit: cover;
+            } */
+
+            .navbar-brand {
+                font-size: 1.1rem;
+            }
+
+            .card-body {
+                padding: 1.5rem !important;
+            }
+
+            .py-5 {
+                padding-top: 2.5rem !important;
+                padding-bottom: 2.5rem !important;
+            }
+
+            .mb-5 {
+                margin-bottom: 2rem !important;
+            }
+
+            .btn-lg {
+                padding: 0.75rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .alert {
+                padding: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .alert-heading {
+                font-size: 1.1rem;
+            }
+
+            /* Мобильная навигация */
+            .navbar-collapse {
+                background-color: rgba(37, 99, 235, 0.98);
+                margin-top: 1rem;
+                border-radius: 0.5rem;
+                padding: 1rem;
+                transition: all 0.3s ease;
+                position: absolute;
+                top: 100%;
+                left: 15px;
+                right: 15px;
+                z-index: 1000;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .navbar-collapse.show {
+                display: block !important;
+            }
+
+            .navbar-nav .nav-link {
+                padding: 0.75rem 1rem;
+                text-align: center;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                transition: background-color 0.2s ease;
+            }
+
+            .navbar-nav .nav-link:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+                border-radius: 0.25rem;
+            }
+
+            .navbar-nav .nav-item:last-child .nav-link {
+                border-bottom: none;
+            }
+
+            /* Карточки продуктов на мобильных */
+            .products-mobile .col-lg-4 {
+                margin-bottom: 1.5rem;
+            }
+
+            .products-mobile .card-img-top {
+                height: 180px !important;
+            }
+
+            /* Партнеры на мобильных */
+            .partners-mobile .card-body img {
+                width: 60px !important;
+                height: 60px !important;
+            }
+
+            /* Форма на мобильных */
+            .contact-form-mobile .row {
+                margin-bottom: 1rem;
+            }
+
+            .contact-form-mobile .col-md-6 {
+                margin-bottom: 1rem;
+            }
+
+            /* Карта на мобильных */
+            .map-mobile {
+                height: 300px !important;
+            }
+
+            /* Футер на мобильных */
+            .footer-mobile .col-lg-4 {
+                margin-bottom: 2rem;
+                text-align: center;
+            }
+
+            .footer-mobile .text-lg-end {
+                text-align: center !important;
+            }
+
+            /* Иконки меньше на мобильных */
+            .mobile-icon-small {
+                font-size: 3rem !important;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .display-4 {
+                font-size: 2rem !important;
+            }
+
+            /* .hero-section img {
+                max-height: 200px;
+            } */
+
+            .card-img-top {
+                height: 150px !important;
+            }
+
+            .btn {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+
+            .d-flex.align-items-center {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .me-3 {
+                margin-bottom: 0.5rem !important;
+                margin-right: 0 !important;
+            }
+        }
+
+        /* Плавная прокрутка */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Улучшенные кнопки */
+        .btn-primary {
+            border: none;
+            background: linear-gradient(45deg, #2563eb, #1d4ed8);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(45deg, #1d4ed8, #1e40af);
+            transform: translateY(-1px);
+        }
+
+        /* Улучшенные карточки */
+        .card {
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .card-img-top {
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .card-img-top {
+            transform: scale(1.05);
+        }
+
+        /* Навигация для всех экранов */
+        .navbar-collapse {
+            transition: all 0.3s ease;
+        }
+
+        /* Навигация для больших экранов */
+        @media (min-width: 992px) {
+            .navbar-collapse {
+                display: flex !important;
+                background-color: transparent !important;
+                margin-top: 0 !important;
+                border-radius: 0 !important;
+                padding: 0 !important;
+                position: static !important;
+                box-shadow: none !important;
+            }
+
+            .navbar-nav .nav-link {
+                padding: 0.5rem 1rem !important;
+                text-align: left !important;
+                border-bottom: none !important;
+            }
+
+            .navbar-nav .nav-link:hover {
+                background-color: transparent !important;
+                color: rgba(255, 255, 255, 0.8) !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <!-- React -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <!-- Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Yandex Maps API -->
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=your-api-key&lang=ru_RU" type="text/javascript"></script>
+
+    <script type="text/babel">
+        const { useState, useRef, useEffect } = React;
+
+        // Header Component
+        function Header() {
+            const [isNavOpen, setIsNavOpen] = useState(false);
+
+            const toggleNav = () => {
+                setIsNavOpen(!isNavOpen);
+            };
+
+            const closeNav = () => {
+                setIsNavOpen(false);
+            };
+
+            // Закрытие навигации при клике вне её области
+            useEffect(() => {
+                const handleClickOutside = (event) => {
+                    const nav = document.getElementById('navbarNav');
+                    const button = document.querySelector('.navbar-toggler');
+
+                    if (isNavOpen && nav && !nav.contains(event.target) && !button.contains(event.target)) {
+                        setIsNavOpen(false);
+                    }
+                };
+
+                document.addEventListener('mousedown', handleClickOutside);
+                return () => {
+                    document.removeEventListener('mousedown', handleClickOutside);
+                };
+            }, [isNavOpen]);
+
+            return (
+                <nav className="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+                    <div className="container">
+                        <a className="navbar-brand fw-bold" href="#home" onClick={closeNav}>
+                            <span className="icon-logo-tradeservice me-2"></span>
+                            ТрейдСервис
+                        </a>
+
+                        <button
+                            className="navbar-toggler"
+                            type="button"
+                            onClick={toggleNav}
+                            aria-controls="navbarNav"
+                            aria-expanded={isNavOpen}
+                            aria-label="Toggle navigation"
+                        >
+                            <span className="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div className={`collapse navbar-collapse ${isNavOpen ? 'show' : ''}`} id="navbarNav">
+                            <ul className="navbar-nav ms-auto">
+                                <li className="nav-item">
+                                    <a className="nav-link" href="#about" onClick={closeNav}>О компании</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="#products" onClick={closeNav}>Продукция</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="#calculator" onClick={closeNav}>Калькулятор</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="#partners" onClick={closeNav}>Партнеры</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="#contact" onClick={closeNav}>Контакты</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            );
+        }
+
+        // Hero Component
+        function Hero() {
+            return (
+                <section id="home" className="hero-section text-white py-5" style={{ marginTop: '76px', minHeight: '80vh' }}>
+                    <div className="container hero-component">
+                        <div className="row align-items-center" style={{ minHeight: '75vh' }}>
+                            <div className="col-lg-12">
+                                <h1 className="display-4 fw-bold mb-4 text-shadow text-center">
+                                    ООО "ТрейдСервис"
+                                </h1>
+                                <p className="lead mb-4">
+                                    Ведущее предприятие Московской области по импорту и оптовым поставкам замороженных ягод, фруктов, овощей и грибов
+                                </p>
+                                <div className="row mb-4">
+                                    <div className="col-md-6 mb-3">
+                                        <div className="d-flex align-items-center">
+                                            <span className="icon-warehouse me-3 text-xl"></span>
+                                            <div>
+                                                <h6 className="mb-0">До 1000 тонн</h6>
+                                                <small>Вместимость складов</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-md-6 mb-3">
+                                        <div className="d-flex align-items-center">
+                                            <span className="icon-truck me-3 text-xl"></span>
+                                            <div>
+                                                <h6 className="mb-0">По всей РФ</h6>
+                                                <small>Доставка</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="#contact" className="btn btn-light btn-lg">
+                                        Связаться с нами
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section >
+            );
+        }
+
+        // About Component
+        function About() {
+            return (
+                <section id="about" className="py-5 bg-light">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-12 text-center mb-5">
+                                <h2 className="display-5 fw-bold">О компании</h2>
+                                <p className="lead">Профессиональные решения в сфере замороженных продуктов</p>
+                            </div>
+                        </div>
+
+                        <div className="row">
+                            <div className="col-lg-6 col-md-12 mb-4">
+                                <div className="card h-100 border-0 shadow-sm card-hover">
+                                    <div className="card-body p-4">
+                                        <span className="icon-globe mb-3 text-primary text-xl d-block"></span>
+                                        <h5 className="card-title">Международное сотрудничество</h5>
+                                        <p className="card-text">
+                                            Сырье для заморозки компания получает от партнеров на эксклюзивных условиях.
+                                            Сотрудничаем с агропромышленными партнерами из Европы, Китая и Египта.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="col-lg-6 col-md-12 mb-4">
+                                <div className="card h-100 border-0 shadow-sm card-hover">
+                                    <div className="card-body p-4">
+                                        <span className="icon-factory mb-3 text-primary text-xl d-block"></span>
+                                        <h5 className="card-title">Производственные мощности</h5>
+                                        <p className="card-text">
+                                            Морозильные камеры способны вместить до 1000 т замороженной продукции.
+                                            Координируем все технологические процессы обработки и глубокой заморозки.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="row">
+                            <div className="col-lg-12">
+                                <div className="card border-0 shadow-sm">
+                                    <div className="card-body p-4">
+                                        <div className="row align-items-center">
+                                            <div className="col-lg-8 col-md-12 text-center text-lg-start mb-3 mb-lg-0">
+                                                <h5 className="card-title">Отлаженная сеть поставок</h5>
+                                                <p className="card-text mb-0">
+                                                    Отменная служба логистики позволяет претендовать на лидирующее положение
+                                                    в сегменте оптовой торговли замороженными продуктами по всей территории РФ.
+                                                </p>
+                                            </div>
+                                            <div className="col-lg-4 col-md-12 text-center">
+                                                <span className="icon-award text-primary mobile-icon-small" style={{ fontSize: '4rem' }}></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        // Products Component
+        function Products() {
+            const products = [
+                {
+                    title: "Замороженные овощи",
+                    icon: "carrot",
+                    image: "./vegetables.jpeg"
+                },
+                {
+                    title: "Замороженные фрукты",
+                    icon: "apple",
+                    image: "./fruits.jpeg"
+                },
+                {
+                    title: "Замороженные ягоды",
+                    icon: "cherry",
+                    image: "./berries.jpeg"
+                },
+                {
+                    title: "Замороженные грибы",
+                    icon: "mushroom",
+                    image: "./mushrooms.jpeg"
+                },
+                {
+                    title: "Замороженные смеси",
+                    icon: "salad",
+                    image: "vegetable_mix.jpeg"
+                }
+            ];
+
+            return (
+                <section id="products" className="py-5">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-12 text-center mb-5">
+                                <h2 className="display-5 fw-bold text-primary">Наша продукция</h2>
+                                <p className="lead text-muted">Высококачественные замороженные продукты для вашего бизнеса</p>
+                            </div>
+                        </div>
+
+                        <div className="row products-mobile">
+                            {products.map((product, index) => (
+                                <div key={index} className="col-lg-4 col-md-6 col-sm-12 mb-4">
+                                    <div className="card h-100 border-0 shadow-sm card-hover">
+                                        <img src={product.image} className="card-img-top" alt={product.title} style={{ objectFit: 'cover' }} />
+                                        <div className="card-body text-center p-4">
+                                            <span className={`icon-${product.icon} mb-3 text-primary text-xl d-block`}></span>
+                                            <h5 className="card-title">{product.title}</h5>
+                                            <p className="card-text text-muted">
+                                                Качественные продукты глубокой заморозки для оптовых поставок
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        <div className="row mt-5">
+                            <div className="col-lg-12 text-center">
+                                <div className="alert alert-info">
+                                    <h5 className="alert-heading">
+                                        <span className="icon-mail me-2 text-xl"></span>
+                                        Готовы к сотрудничеству
+                                    </h5>
+                                    <p className="mb-0">
+                                        Мы всегда рады рассмотреть Ваши предложения по сотрудничеству в сфере продуктов питания глубокой заморозки
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        // Calculator Component
+        function Calculator() {
+            const [fromCity, setFromCity] = useState('');
+            const [toCity, setToCity] = useState('');
+            const [weight, setWeight] = useState('');
+            const [cost, setCost] = useState(null);
+
+            const calculateCost = () => {
+                if (fromCity && toCity && weight) {
+                    const baseCost = 50;
+                    const distance = Math.random() * 1000 + 100;
+                    const calculatedCost = Math.round(baseCost * parseFloat(weight) * (distance / 1000));
+                    setCost(calculatedCost);
+                }
+            };
+
+            return (
+                <section id="calculator" className="py-5 bg-light">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-12 text-center mb-5">
+                                <h2 className="display-5 fw-bold text-primary">Калькулятор стоимости доставки</h2>
+                                <p className="lead text-muted">Рассчитайте стоимость доставки по территории РФ</p>
+                            </div>
+                        </div>
+
+                        <div className="row justify-content-center">
+                            <div className="col-lg-8">
+                                <div className="card border-0 shadow-sm">
+                                    <div className="card-body p-4">
+                                        <div className="row">
+                                            <div className="col-md-6 mb-3">
+                                                <label className="form-label">Пункт отправления</label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    placeholder="Введите город отправления"
+                                                    value={fromCity}
+                                                    onChange={(e) => setFromCity(e.target.value)}
+                                                />
+                                            </div>
+                                            <div className="col-md-6 mb-3">
+                                                <label className="form-label">Пункт назначения</label>
+                                                <input
+                                                    type="text"
+                                                    className="form-control"
+                                                    placeholder="Введите город назначения"
+                                                    value={toCity}
+                                                    onChange={(e) => setToCity(e.target.value)}
+                                                />
+                                            </div>
+                                        </div>
+
+                                        <div className="row">
+                                            <div className="col-md-6 mb-3">
+                                                <label className="form-label">Вес груза (кг)</label>
+                                                <input
+                                                    type="number"
+                                                    className="form-control"
+                                                    placeholder="Введите вес в килограммах"
+                                                    value={weight}
+                                                    onChange={(e) => setWeight(e.target.value)}
+                                                />
+                                            </div>
+                                            <div className="col-md-6 mb-3 d-flex align-items-end">
+                                                <button
+                                                    className="btn btn-primary w-100"
+                                                    onClick={calculateCost}
+                                                >
+                                                    <span className="icon-calculator me-2 text-xl"></span>
+                                                    Рассчитать стоимость
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        {cost && (
+                                            <div className="alert alert-success mt-3">
+                                                <h5 className="alert-heading">
+                                                    <span className="icon-ruble-sign me-2 text-xl"></span>
+                                                    Стоимость доставки
+                                                </h5>
+                                                <p className="mb-0 fs-4 fw-bold">{cost.toLocaleString()} рублей</p>
+                                                <small className="text-muted">
+                                                    *Точная стоимость рассчитывается индивидуально
+                                                </small>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        // Partners Component
+        function Partners() {
+            const partners = [
+                {
+                    name: "Европейские поставщики",
+                    logo: "european_partners.jpeg",
+                    description: "Надежные партнеры из стран Европы"
+                },
+                {
+                    name: "Китайские производители",
+                    logo: "./chineese_pertners.jpeg",
+                    description: "Качественная продукция из Китая"
+                },
+                {
+                    name: "Египетские фермы",
+                    logo: "./egyptian_farms.jpeg",
+                    description: "Свежие фрукты и овощи из Египта"
+                },
+                {
+                    name: "Российские заготовители",
+                    logo: "./russian_producers.jpeg",
+                    description: "Эксклюзивные поставщики по РФ"
+                },
+                {
+                    name: "Логистические компании",
+                    logo: "./logistic_companies.jpeg",
+                    description: "Надежная доставка по всей России"
+                },
+                {
+                    name: "Складские комплексы",
+                    logo: "./warehouse_complexes.jpeg",
+                    description: "Современные хранилища"
+                }
+            ];
+
+            return (
+                <section id="partners" className="py-5">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-12 text-center mb-5">
+                                <h2 className="display-5 fw-bold text-primary">Наши партнеры</h2>
+                                <p className="lead text-muted">Сотрудничество с лучшими компаниями мира</p>
+                            </div>
+                        </div>
+
+                        <div className="row partners-mobile">
+                            {partners.map((partner, index) => (
+                                <div key={index} className="col-lg-4 col-md-6 col-sm-12 mb-4">
+                                    <div className="card h-100 border-0 shadow-sm card-hover text-center">
+                                        <div className="card-body p-4">
+                                            <div className="mb-3">
+                                                <img
+                                                    src={partner.logo}
+                                                    alt={partner.name}
+                                                    className="rounded-circle"
+                                                    style={{ width: '80px', height: '80px', objectFit: 'cover' }}
+                                                />
+                                            </div>
+                                            <h5 className="card-title">{partner.name}</h5>
+                                            <p className="card-text text-muted">{partner.description}</p>
+                                            <span className="icon-handshake text-primary text-xl"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        <div className="row mt-5">
+                            <div className="col-lg-12 text-center">
+                                <div className="card border-primary">
+                                    <div className="card-body p-4">
+                                        <h5 className="card-title text-primary">
+                                            <span className="icon-users me-2 text-xl"></span>
+                                            Станьте нашим партнером
+                                        </h5>
+                                        <p className="card-text">
+                                            Мы открыты для новых партнерских отношений и готовы обсудить взаимовыгодное сотрудничество
+                                        </p>
+                                        <a href="#contact" className="btn btn-primary">
+                                            Связаться с нами
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        // ContactForm Component
+        function ContactForm() {
+            const [formData, setFormData] = useState({
+                name: '',
+                email: '',
+                phone: '',
+                company: '',
+                message: ''
+            });
+            const [submitted, setSubmitted] = useState(false);
+
+            const handleSubmit = (e) => {
+                e.preventDefault();
+                console.log('Form submitted:', formData);
+                setSubmitted(true);
+                setTimeout(() => setSubmitted(false), 3000);
+            };
+
+            const handleChange = (e) => {
+                setFormData({
+                    ...formData,
+                    [e.target.name]: e.target.value
+                });
+            };
+
+            return (
+                <section id="contact" className="py-5 bg-light">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-12 text-center mb-5">
+                                <h2 className="display-5 fw-bold text-primary">Свяжитесь с нами</h2>
+                                <p className="lead text-muted">Мы готовы ответить на все ваши вопросы</p>
+                            </div>
+                        </div>
+
+                        <div className="row contact-form-mobile">
+                            <div className="col-lg-8 col-md-12 mb-4">
+                                <div className="card border-0 shadow-sm">
+                                    <div className="card-body p-4">
+                                        {submitted && (
+                                            <div className="alert alert-success mb-4">
+                                                <span className="icon-check-circle me-2 text-xl"></span>
+                                                Спасибо! Ваше сообщение отправлено. Мы свяжемся с вами в ближайшее время.
+                                            </div>
+                                        )}
+
+                                        <form onSubmit={handleSubmit}>
+                                            <div className="row">
+                                                <div className="col-md-6 mb-3">
+                                                    <label className="form-label">Имя *</label>
+                                                    <input
+                                                        type="text"
+                                                        className="form-control"
+                                                        name="name"
+                                                        value={formData.name}
+                                                        onChange={handleChange}
+                                                        required
+                                                    />
+                                                </div>
+                                                <div className="col-md-6 mb-3">
+                                                    <label className="form-label">Email *</label>
+                                                    <input
+                                                        type="email"
+                                                        className="form-control"
+                                                        name="email"
+                                                        value={formData.email}
+                                                        onChange={handleChange}
+                                                        required
+                                                    />
+                                                </div>
+                                            </div>
+
+                                            <div className="row">
+                                                <div className="col-md-6 mb-3">
+                                                    <label className="form-label">Телефон</label>
+                                                    <input
+                                                        type="tel"
+                                                        className="form-control"
+                                                        name="phone"
+                                                        value={formData.phone}
+                                                        onChange={handleChange}
+                                                    />
+                                                </div>
+                                                <div className="col-md-6 mb-3">
+                                                    <label className="form-label">Компания</label>
+                                                    <input
+                                                        type="text"
+                                                        className="form-control"
+                                                        name="company"
+                                                        value={formData.company}
+                                                        onChange={handleChange}
+                                                    />
+                                                </div>
+                                            </div>
+
+                                            <div className="mb-3">
+                                                <label className="form-label">Сообщение *</label>
+                                                <textarea
+                                                    className="form-control"
+                                                    rows="4"
+                                                    name="message"
+                                                    value={formData.message}
+                                                    onChange={handleChange}
+                                                    required
+                                                ></textarea>
+                                            </div>
+
+                                            <button type="submit" className="btn btn-primary btn-lg w-100">
+                                                <span className="icon-send me-2 text-xl"></span>
+                                                Отправить сообщение
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="col-lg-4 col-md-12">
+                                <div className="card border-0 shadow-sm h-100">
+                                    <div className="card-body p-4">
+                                        <h5 className="card-title mb-4">Контактная информация</h5>
+
+                                        <div className="mb-3">
+                                            <span className="icon-building text-primary me-2 text-xl"></span>
+                                            <strong>Офис:</strong><br />
+                                            <small>Москва, Хлыновский тупик, д.3с4</small>
+                                        </div>
+
+                                        <div className="mb-3">
+                                            <span className="icon-warehouse text-primary me-2 text-xl"></span>
+                                            <strong>Склад:</strong><br />
+                                            <small>141100, Россия, Московская область,<br />
+                                                г. Щелково, ул. Заречная, д. 117</small>
+                                        </div>
+
+                                        <div className="mb-3">
+                                            <span className="icon-phone text-primary me-2 text-xl"></span>
+                                            <strong>Телефоны:</strong><br />
+                                            <a href="tel:+74951084154" className="text-decoration-none d-block">+7 (495) 108-41-54</a>
+                                            <small className="text-muted">Отдел продаж (офис Москва)</small><br />
+                                            <a href="tel:+74957489688" className="text-decoration-none d-block mt-1">+7 (495) 748-96-88</a>
+                                            <small className="text-muted">Склад, ген.директор (г.Щёлково)</small>
+                                        </div>
+
+                                        <div className="mb-3">
+                                            <span className="icon-mail text-primary me-2 text-xl"></span>
+                                            <strong>Email:</strong><br />
+                                            <a href="mailto:example@gmail.com" className="text-decoration-none">example@gmail.com</a>
+                                        </div>
+
+                                        <div className="mb-3">
+                                            <span className="icon-clock text-primary me-2 text-xl"></span>
+                                            <strong>Режим работы:</strong><br />
+                                            <small>Пн-Пт 9:00-18:00</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        // Map Component
+        function Map() {
+            const mapRef = useRef(null);
+
+            useEffect(() => {
+                if (typeof ymaps !== 'undefined' && mapRef.current) {
+                    ymaps.ready(() => {
+                        const map = new ymaps.Map(mapRef.current, {
+                            center: [55.757951, 37.602014],
+                            zoom: window.innerWidth < 768 ? 13 : 15,
+                            controls: ['zoomControl', 'fullscreenControl']
+                        });
+
+                        const warehousePlacemark = new ymaps.Placemark([55.928955, 38.034552], {
+                            balloonContent: '<strong>ООО "ТрейдСервис"</strong><br/>Склад: г. Щелково, ул. Заречная, д. 117',
+                            hintContent: 'Склад ТрейдСервис'
+                        }, {
+                            preset: 'islands#redDotIcon'
+                        });
+
+                        const officePlacemark = new ymaps.Placemark([55.757951, 37.602014], {
+                            balloonContent: '<strong>ООО "ТрейдСервис"</strong><br/>Офис: Москва, Хлыновский тупик, д.3с4',
+                            hintContent: 'Офис ТрейдСервис'
+                        }, {
+                            preset: 'islands#blueDotIcon'
+                        });
+
+                        map.geoObjects.add(warehousePlacemark);
+                        map.geoObjects.add(officePlacemark);
+                    });
+                }
+            }, []);
+
+            return (
+                <section className="py-5">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-12 text-center mb-5">
+                                <h2 className="display-5 fw-bold text-primary">Наше местоположение</h2>
+                                <p className="lead text-muted">Найдите нас на карте</p>
+                            </div>
+                        </div>
+
+                        <div className="row">
+                            <div className="col-lg-12">
+                                <div className="card border-0 shadow-sm">
+                                    <div className="card-body p-0">
+                                        <div
+                                            ref={mapRef}
+                                            className="map-mobile"
+                                            style={{ height: '400px', width: '100%' }}
+                                        ></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="row mt-4">
+                            <div className="col-lg-6 col-md-6 col-sm-12 mb-3">
+                                <div className="card border-0 shadow-sm">
+                                    <div className="card-body p-3 text-center text-md-start">
+                                        <h6 className="card-title text-primary">
+                                            <span className="icon-building me-2 text-xl"></span>
+                                            Офис в Москве
+                                        </h6>
+                                        <p className="card-text mb-0">Хлыновский тупик, д.3с4</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-lg-6 col-md-6 col-sm-12 mb-3">
+                                <div className="card border-0 shadow-sm">
+                                    <div className="card-body p-3 text-center text-md-start">
+                                        <h6 className="card-title text-primary">
+                                            <span className="icon-warehouse me-2 text-xl"></span>
+                                            Склад в Щелково
+                                        </h6>
+                                        <p className="card-text mb-0">ул. Заречная, д. 117</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        // Footer Component
+        function Footer() {
+            const date = new Date().getFullYear().toString();
+            return (
+                <footer className="bg-dark text-light py-5">
+                    <div className="container">
+                        <div className="row footer-mobile">
+                            <div className="col-lg-4 col-md-12 mb-4">
+                                <h5 className="mb-3">
+                                    <span className="icon-logo-tradeservice me-2 text-xl"></span>
+                                    ООО "ТрейдСервис"
+                                </h5>
+                                <p>
+                                    Ведущее предприятие Московской области по импорту и оптовым поставкам
+                                    замороженных ягод, фруктов, овощей и грибов.
+                                </p>
+                            </div>
+
+                            <div className="col-lg-4 col-md-6 col-sm-12 mb-4">
+                                <h6 className="mb-3">Контакты</h6>
+                                <div className="mb-2">
+                                    <span className="icon-phone me-2 text-xl"></span>
+                                    <a href="tel:+74951084154" className="text-light text-decoration-none">+7 (495) 108-41-54</a>
+                                </div>
+                                <div className="mb-2">
+                                    <span className="icon-phone me-2 text-xl"></span>
+                                    <a href="tel:+74957489688" className="text-light text-decoration-none">+7 (495) 748-96-88</a>
+                                </div>
+                                <div className="mb-2">
+                                    <span className="icon-mail me-2 text-xl"></span>
+                                    <a href="mailto:example@gmail.com" className="text-light text-decoration-none">example@gmail.com</a>
+                                </div>
+                                <div>
+                                    <span className="icon-clock me-2 text-xl"></span>
+                                    <span>Пн-Пт 9:00-18:00</span>
+                                </div>
+                            </div>
+
+                            <div className="col-lg-4 col-md-6 col-sm-12 mb-4">
+                                <h6 className="mb-3">Специализированные email</h6>
+                                <ul className="list-unstyled">
+                                    <li className="mb-2">
+                                        <span className="icon-shopping-cart me-2 text-xl"></span>
+                                        <span className="small">Закупка сырья:</span><br />
+                                        <a href="mailto:example@gmail.com" className="text-light text-decoration-none">example@gmail.com</a>
+                                    </li>
+                                    <li className="mb-2">
+                                        <span className="icon-handshake me-2 text-xl"></span>
+                                        <span className="small">Сотрудничество в России:</span><br />
+                                        <a href="mailto:example@gmail.com" className="text-light text-decoration-none">example@gmail.com</a>
+                                    </li>
+                                    <li className="mb-2">
+                                        <span className="icon-truck me-2 text-xl"></span>
+                                        <span className="small">Логистика:</span><br />
+                                        <a href="mailto:example@gmail.com" className="text-light text-decoration-none">example@gmail.com</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <hr className="my-4" />
+
+                        <div className="row align-items-center footer-mobile">
+                            <div className="col-lg-6 col-md-12 mb-3 mb-lg-0">
+                                <p className="mb-0 text-xl text-center text-lg-start">
+                                    &copy; {date} ООО "ТрейдСервис". Все права защищены.
+                                </p>
+                            </div>
+                            <div className="col-lg-6 col-md-12 text-center text-lg-end">
+                                <p className="mb-0 text-xl">
+                                    <span className="d-block d-sm-inline me-3">Овощи и фрукты оптом</span>
+                                    <span className="d-block d-sm-inline me-3">Хладокомбинат</span>
+                                    <span className="d-block d-sm-inline">Продукты глубокой заморозки</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            );
+        }
+
+        // Error Boundary
+        class ErrorBoundary extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = { hasError: false, error: null };
+            }
+
+            static getDerivedStateFromError(error) {
+                return { hasError: true, error };
+            }
+
+            componentDidCatch(error, errorInfo) {
+                console.error('ErrorBoundary caught an error:', error, errorInfo);
+            }
+
+            render() {
+                if (this.state.hasError) {
+                    return (
+                        <div className="min-vh-100 d-flex align-items-center justify-content-center bg-light">
+                            <div className="text-center">
+                                <h1 className="display-6 fw-bold text-dark mb-4">Возникла непредвиденная ошибка</h1>
+                                <p className="text-muted mb-4">Ведутся работы, мы это исправим</p>
+                                <button
+                                    onClick={() => window.location.reload()}
+                                    className="btn btn-primary"
+                                >
+                                    Перезагрузить страницу
+                                </button>
+                            </div>
+                        </div>
+                    );
+                }
+
+                return this.props.children;
+            }
+        }
+
+        // Main App Component
+        function App() {
+            return (
+                <div className="App">
+                    <Header />
+                    <Hero />
+                    <About />
+                    <Products />
+                    <Calculator />
+                    <Partners />
+                    <ContactForm />
+                    <Map />
+                    <Footer />
+                </div>
+            );
+        }
+
+        // Render the app
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(
+            <ErrorBoundary>
+                <App />
+            </ErrorBoundary>
+        );
+    </script>
+</body>
+
+</html>
